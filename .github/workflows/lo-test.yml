@@ -53,7 +53,21 @@ jobs:
           else
           sudo chown $USER:$(id -gn) lede && git clone -b $BRANCH --single-branch https://github.com/immortalwrt/immortalwrt lede
           fi
+      - name: 自定义插件主题。
 
+        run: |
+
+          cd package
+
+          mkdir openwrt-packages
+
+          cd openwrt-packages
+
+          git clone https://github.com/XXKDB/luci-theme-argon_armygreen
+
+          git clone https://github.com/liuran001/openwrt-packages/tree/packages/luci-app-bypass
+
+ 
       - name: Update feeds and packages
         run: |
           cd ~/lede
